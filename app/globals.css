@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Archivo Black", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+html, body {
+  background: #F4F1EA;
+  color: #0B1220;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tape {
+  background: repeating-linear-gradient(
+    45deg,
+    #E0552B,
+    #E0552B 14px,
+    #0B1220 14px,
+    #0B1220 28px
+  );
+}
+
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  background-image: radial-gradient(rgba(0,0,0,0.6) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+.scribble-underline {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12'><path d='M2 8 Q 50 -2 100 6 T 198 6' fill='none' stroke='%23E0552B' stroke-width='4' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.4em;
+  padding-bottom: 0.15em;
+}
