@@ -11,6 +11,7 @@ export function Nav() {
         <a href="/#how" className="hover:text-sf-orange">How it works</a>
         <a href="/#report" className="hover:text-sf-orange">What to report</a>
         <a href="/#wins" className="hover:text-sf-orange">Clean SF Wins</a>
+        <a href="/media-kit" className="hover:text-sf-orange">Media kit</a>
         <a href="/dashboard/public" className="hover:text-sf-orange">Public dashboard</a>
         <a href="/dashboard/operations" className="hover:text-sf-orange">DPW ops</a>
       </div>
