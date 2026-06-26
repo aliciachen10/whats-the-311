@@ -1,40 +1,40 @@
 {
-  "as_of": "2026-06-24T23:58:30-07:00",
+  "as_of": "2026-06-25T23:59:10-07:00",
   "rows": [
     {
-      "n": 20,
-      "cat": "Garbage And Debris \u2014 Human Waste Or Urine",
-      "loc": "542 Ellis St",
-      "win": "6am\u20137pm",
-      "nbh": "Tenderloin"
+      "n": 12,
+      "cat": "Not Offensive \u2014 Building Commercial",
+      "loc": "1131 Grant Ave",
+      "win": "6pm\u20137pm",
+      "nbh": "Chinatown"
     },
     {
-      "n": 11,
-      "cat": "Garbage And Debris \u2014 Other Loose Garbage Debris Yard Waste",
-      "loc": "445 Leavenworth St",
-      "win": "6am\u20138pm",
-      "nbh": "Tenderloin"
+      "n": 10,
+      "cat": "Human Waste Or Urine",
+      "loc": "1000 Sutter St",
+      "win": "6am\u20135pm",
+      "nbh": "Lower Nob Hill"
     },
     {
-      "n": 7,
-      "cat": "Garbage And Debris \u2014 Human Waste Or Urine",
-      "loc": "166 Eddy St",
-      "win": "7am\u20138pm",
-      "nbh": "Tenderloin"
+      "n": 10,
+      "cat": "Not Offensive \u2014 Building Commercial",
+      "loc": "10 Pontiac St",
+      "win": "6pm\u20137pm",
+      "nbh": "Chinatown"
     },
     {
-      "n": 5,
-      "cat": "Garbage And Debris \u2014 Other Loose Garbage Debris Yard Waste",
-      "loc": "1245 Howard St",
-      "win": "8am\u201312pm",
-      "nbh": "South of Market"
+      "n": 8,
+      "cat": "Not Offensive \u2014 Pole",
+      "loc": "419 Laguna St",
+      "win": "1pm\u20139pm",
+      "nbh": "Hayes Valley"
     },
     {
-      "n": 5,
-      "cat": "Garbage And Debris \u2014 Other Loose Garbage Debris Yard Waste",
-      "loc": "1785 Fillmore St",
-      "win": "8am\u20139pm",
-      "nbh": "Lower Pacific Heights"
+      "n": 8,
+      "cat": "Not Offensive \u2014 Pole",
+      "loc": "4162 20Th St",
+      "win": "8pm",
+      "nbh": "Eureka Valley"
     }
   ]
 }

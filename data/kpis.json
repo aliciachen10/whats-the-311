@@ -1,13 +1,13 @@
 {
-  "queue_count": 714,
+  "queue_count": 854,
   "queue_subtitle": "across 84 categories",
-  "dupes_merged": 167,
-  "dupes_subtitle": "\u2248 41 truck-rolls avoided",
-  "p1_count": 115,
-  "blindspot_count": 50,
+  "dupes_merged": 196,
+  "dupes_subtitle": "\u2248 49 truck-rolls avoided",
+  "p1_count": 109,
+  "blindspot_count": 110,
   "blindspot_subtitle": "from 5 flagged neighborhoods",
-  "raw_24h": 714,
-  "raw_24h_rounded": 700,
-  "backlog_90d": 14088,
-  "as_of": "2026-06-24T23:58:30-07:00"
+  "raw_24h": 854,
+  "raw_24h_rounded": 800,
+  "backlog_90d": 14234,
+  "as_of": "2026-06-25T23:59:10-07:00"
 }
