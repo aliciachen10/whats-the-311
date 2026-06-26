@@ -1,22 +1,34 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { clusters, neighborhoods, queue, type QueueRow } from "@/lib/dashboardData";
+import type { Cluster, DailyFlow, Kpis, Neighborhood, QueueRow } from "@/lib/dashboardData";
+import { InflowOutflowChart } from "@/components/InflowOutflowChart";
 
 type SortKey = keyof Pick<QueueRow, "priority" | "category" | "location" | "neighborhood" | "severity" | "ageHrs" | "dupes">;
 
 const PR: Record<QueueRow["priority"], number> = { P1: 3, P2: 2, P3: 1 };
 
-export function OperationsDashboard() {
+type Props = {
+  queue: QueueRow[];
+  neighborhoods: Neighborhood[];
+  clusters: Cluster[];
+  kpis: Kpis;
+  dailyFlow: DailyFlow[];
+};
+
+export function OperationsDashboard({ queue, neighborhoods, clusters, kpis, dailyFlow }: Props) {
   const [fcat, setFcat] = useState("");
   const [fpri, setFpri] = useState("");
   const [fsearch, setFsearch] = useState("");
   const [sortKey, setSortKey] = useState<SortKey>("severity");
   const [sortDir, setSortDir] = useState<-1 | 1>(-1);
+  const [page, setPage] = useState(0);
+
+  const PAGE_SIZE = 10;
 
   const categories = useMemo(
     () => [...new Set(queue.map((q) => q.category))].sort(),
-    []
+    [queue]
   );
 
   const rows = useMemo(() => {
@@ -36,7 +48,14 @@ export function OperationsDashboard() {
       if (typeof x === "string" && typeof y === "string") return sortDir * x.localeCompare(y);
       return sortDir * ((x as number) - (y as number));
     });
-  }, [fcat, fpri, fsearch, sortKey, sortDir]);
+  }, [queue, fcat, fpri, fsearch, sortKey, sortDir]);
+
+  const pageCount = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
+  const clampedPage = Math.min(page, pageCount - 1);
+  const pagedRows = rows.slice(clampedPage * PAGE_SIZE, (clampedPage + 1) * PAGE_SIZE);
+  // When filters narrow the result set so much that the current page is
+  // past the end, snap back to the last available page on the next render.
+  const resetPage = () => setPage(0);
 
   const sortBy = (k: SortKey) => {
     if (k === sortKey) setSortDir((d) => (d === -1 ? 1 : -1));
@@ -61,15 +80,15 @@ export function OperationsDashboard() {
           Today&apos;s queue, prioritized and de-duplicated.
         </h1>
         <p className="text-ink/70 mt-2 max-w-2xl">
-          ~900 raw tickets reduced to a ranked work list, with blind-spot correction so crews aren&apos;t sent only where it&apos;s loudest.
+          ~{fmtInt(kpis.raw_24h_rounded)} raw tickets reduced to a ranked work list, with blind-spot correction so crews aren&apos;t sent only where it&apos;s loudest.
         </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-4 mb-6">
-        <Kpi accent="#3E78B2" bg="#E7F1FB" big="912" lbl="Tickets in queue today" delta="across 11 categories" />
-        <Kpi accent="#E0552B" bg="#FDEEE2" big="140" lbl="Duplicates auto-merged" delta="≈ 35 truck-rolls avoided" />
-        <Kpi accent="#C0392B" bg="#FBE9E7" big="23" lbl="P1 — dispatch now" delta="5 syringes · 7 feces" />
-        <Kpi accent="#E0A92E" bg="#FFF6EC" big="5" lbl="Blind-spot alerts" delta="high audit, low reports" />
+        <Kpi accent="#3E78B2" bg="#E7F1FB" big={fmtInt(kpis.queue_count)} lbl="Tickets in queue today" delta={kpis.queue_subtitle} />
+        <Kpi accent="#E0552B" bg="#FDEEE2" big={fmtInt(kpis.dupes_merged)} lbl="Duplicates auto-merged" delta={kpis.dupes_subtitle} />
+        <Kpi accent="#C0392B" bg="#FBE9E7" big={fmtInt(kpis.p1_count)} lbl="P1 — dispatch now" delta="syringes · human/animal waste" />
+        <Kpi accent="#E0A92E" bg="#FFF6EC" big={fmtInt(kpis.blindspot_count)} lbl="Blind-spot alerts" delta={kpis.blindspot_subtitle} />
       </div>
 
       <div className="grid gap-4 md:grid-cols-[1fr_1.5fr] mb-6">
@@ -83,22 +102,24 @@ export function OperationsDashboard() {
               const color = d.prop < 0.5 ? "#C0392B" : d.prop > 1.3 ? "#3E78B2" : "#E0A92E";
               return (
                 <div key={d.n} className="flex items-center gap-3 py-2 border-b border-ink/10 text-sm last:border-b-0">
-                  <div className="w-44 flex-none font-bold">
-                    {d.n}
+                  <div className="flex-1 min-w-0 flex items-center gap-1.5 font-bold whitespace-nowrap">
+                    <span className="truncate">{d.n}</span>
                     {d.spot && (
-                      <span className="ml-1 inline-block text-[9px] font-extrabold px-1.5 py-0.5 rounded-full bg-sf-orange text-white align-middle">
+                      <span className="flex-none text-[9px] font-extrabold px-1.5 py-0.5 rounded-full bg-sf-orange text-white">
                         BLIND
                       </span>
                     )}
                   </div>
-                  <div className="flex-1 h-2.5 rounded relative" style={{ background: "linear-gradient(90deg,#E7F1FB,#f6e3dc)" }}>
-                    <div
-                      className="absolute -top-0.5 w-4 h-4 rounded-full border-2 border-white"
-                      style={{ left: `${pos(d.prop).toFixed(0)}%`, transform: "translateX(-50%)", background: color, boxShadow: "0 1px 3px rgba(0,0,0,.2)" }}
-                    />
-                  </div>
-                  <div className="w-28 text-right font-extrabold tabular-nums text-xs" style={{ color }}>
-                    {d.prop.toFixed(2)}× · litter {d.litter.toFixed(1)}
+                  <div className="w-[102px] flex-none flex flex-col items-end gap-1.5">
+                    <div className="font-extrabold tabular-nums text-xs" style={{ color }}>
+                      {d.prop.toFixed(2)}× · litter {d.litter.toFixed(1)}
+                    </div>
+                    <div className="w-full h-2.5 rounded relative" style={{ background: "linear-gradient(90deg,#E7F1FB,#f6e3dc)" }}>
+                      <div
+                        className="absolute -top-0.5 w-4 h-4 rounded-full border-2 border-white"
+                        style={{ left: `${pos(d.prop).toFixed(0)}%`, transform: "translateX(-50%)", background: color, boxShadow: "0 1px 3px rgba(0,0,0,.2)" }}
+                      />
+                    </div>
                   </div>
                 </div>
               );
@@ -135,7 +156,7 @@ export function OperationsDashboard() {
             ))}
           </div>
           <p className="text-xs text-ink/50 mt-3">
-            This week: <b>1,240</b> duplicates merged · est. <b>310</b> redundant dispatches avoided.
+            Today: <b>{fmtInt(kpis.dupes_merged)}</b> duplicates merged · est. <b>{Math.max(Math.floor(kpis.dupes_merged / 4), 1)}</b> redundant dispatches avoided.
           </p>
         </Card>
       </div>
@@ -148,7 +169,7 @@ export function OperationsDashboard() {
         <div className="flex flex-wrap gap-2 mb-3">
           <select
             value={fcat}
-            onChange={(e) => setFcat(e.target.value)}
+            onChange={(e) => { setFcat(e.target.value); resetPage(); }}
             className="text-sm px-3 py-2 border border-ink/15 rounded-lg bg-white"
           >
             <option value="">All categories</option>
@@ -160,7 +181,7 @@ export function OperationsDashboard() {
           </select>
           <select
             value={fpri}
-            onChange={(e) => setFpri(e.target.value)}
+            onChange={(e) => { setFpri(e.target.value); resetPage(); }}
             className="text-sm px-3 py-2 border border-ink/15 rounded-lg bg-white"
           >
             <option value="">All priorities</option>
@@ -171,7 +192,7 @@ export function OperationsDashboard() {
           <input
             type="search"
             value={fsearch}
-            onChange={(e) => setFsearch(e.target.value)}
+            onChange={(e) => { setFsearch(e.target.value); resetPage(); }}
             placeholder="Search location or neighborhood…"
             className="text-sm px-3 py-2 border border-ink/15 rounded-lg bg-white flex-1 min-w-[200px]"
           />
@@ -192,7 +213,7 @@ export function OperationsDashboard() {
               </tr>
             </thead>
             <tbody>
-              {rows.map((r, i) => (
+              {pagedRows.map((r, i) => (
                 <tr key={i} className="border-t border-ink/10">
                   <td className="py-2 pr-3">
                     <PriorityPill priority={r.priority} />
@@ -212,10 +233,48 @@ export function OperationsDashboard() {
             </tbody>
           </table>
         </div>
+        <div className="flex items-center justify-between mt-4 text-xs text-ink/60">
+          <div>
+            {rows.length === 0
+              ? "No matches"
+              : `${clampedPage * PAGE_SIZE + 1}–${Math.min((clampedPage + 1) * PAGE_SIZE, rows.length)} of ${rows.length}`}
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setPage((p) => Math.max(p - 1, 0))}
+              disabled={clampedPage === 0}
+              className="px-3 py-1.5 rounded-lg border border-ink/15 bg-white font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-ink/5"
+            >
+              ← Prev
+            </button>
+            <span className="tabular-nums">
+              Page {clampedPage + 1} of {pageCount}
+            </span>
+            <button
+              type="button"
+              onClick={() => setPage((p) => Math.min(p + 1, pageCount - 1))}
+              disabled={clampedPage >= pageCount - 1}
+              className="px-3 py-1.5 rounded-lg border border-ink/15 bg-white font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-ink/5"
+            >
+              Next →
+            </button>
+          </div>
+        </div>
         <p className="text-xs text-ink/50 mt-3">
           Severity blends audit-calibrated need with report signal. &ldquo;Merged&rdquo; = duplicate reports folded into this job.
         </p>
       </Card>
+
+      <div className="mt-6">
+        <Card>
+          <h3 className="font-display text-lg">Inflow vs. closures by day, last 90 days</h3>
+          <p className="text-ink/60 text-sm mt-1 mb-4">
+            Are crews closing as fast as the city reports? When opened (red) outruns closed (green), the backlog grows.
+          </p>
+          <InflowOutflowChart rows={dailyFlow} />
+        </Card>
+      </div>
 
       <p className="text-xs text-ink/50 mt-8">
         Prototype data illustrative. Built on SF open data (311 cases <code>vw6y-z8j6</code>, Street &amp; Sidewalk Standards <code>qya8-uhsz</code>).
@@ -277,6 +336,10 @@ function StatusBadge({ status }: { status: QueueRow["status"] }) {
   } as const;
   const [cls, label] = map[status];
   return <span className={`text-xs font-bold px-2 py-1 rounded ${cls}`}>{label}</span>;
+}
+
+function fmtInt(n: number): string {
+  return n.toLocaleString("en-US");
 }
 
 function Legend({ color, children }: { color: string; children: React.ReactNode }) {

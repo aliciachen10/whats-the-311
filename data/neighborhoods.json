@@ -1,0 +1,108 @@
+{
+  "as_of": "2026-06-24T23:58:30-07:00",
+  "rows": [
+    {
+      "n": "Tenderloin",
+      "reports": 2577,
+      "resp": 10,
+      "litter": 2.91,
+      "prop": 3.8
+    },
+    {
+      "n": "Mission",
+      "reports": 8187,
+      "resp": 7,
+      "litter": 2.79,
+      "prop": 1.6
+    },
+    {
+      "n": "South of Market",
+      "reports": 3033,
+      "resp": 12,
+      "litter": 2.6,
+      "prop": 0.7
+    },
+    {
+      "n": "Financial District",
+      "reports": 988,
+      "resp": 14,
+      "litter": 2.2,
+      "prop": 2.1
+    },
+    {
+      "n": "Chinatown",
+      "reports": 786,
+      "resp": 15,
+      "litter": 2.1,
+      "prop": 3.1
+    },
+    {
+      "n": "Nob Hill",
+      "reports": 1865,
+      "resp": 13,
+      "litter": 2.05,
+      "prop": 2.4
+    },
+    {
+      "n": "North Beach",
+      "reports": 562,
+      "resp": 11,
+      "litter": 2.15,
+      "prop": 2.0
+    },
+    {
+      "n": "Russian Hill",
+      "reports": 684,
+      "resp": 10,
+      "litter": 1.98,
+      "prop": 2.6
+    },
+    {
+      "n": "Bayview Hunters Point",
+      "reports": 1458,
+      "resp": 14,
+      "litter": 2.74,
+      "prop": 0.31,
+      "spot": true
+    },
+    {
+      "n": "Excelsior",
+      "reports": 603,
+      "resp": 10,
+      "litter": 2.45,
+      "prop": 0.34,
+      "spot": true
+    },
+    {
+      "n": "West of Twin Peaks",
+      "reports": 635,
+      "resp": 14,
+      "litter": 2.02,
+      "prop": 0.6
+    },
+    {
+      "n": "Portola",
+      "reports": 601,
+      "resp": 10,
+      "litter": 2.41,
+      "prop": 0.27,
+      "spot": true
+    },
+    {
+      "n": "Visitacion Valley",
+      "reports": 149,
+      "resp": 15,
+      "litter": 2.62,
+      "prop": 0.22,
+      "spot": true
+    },
+    {
+      "n": "Oceanview/Merced/Ingleside",
+      "reports": 563,
+      "resp": 10,
+      "litter": 2.55,
+      "prop": 0.1,
+      "spot": true
+    }
+  ]
+}

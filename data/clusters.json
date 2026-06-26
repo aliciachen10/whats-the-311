@@ -1,0 +1,40 @@
+{
+  "as_of": "2026-06-24T23:58:30-07:00",
+  "rows": [
+    {
+      "n": 20,
+      "cat": "Garbage And Debris \u2014 Human Waste Or Urine",
+      "loc": "542 Ellis St",
+      "win": "6am\u20137pm",
+      "nbh": "Tenderloin"
+    },
+    {
+      "n": 11,
+      "cat": "Garbage And Debris \u2014 Other Loose Garbage Debris Yard Waste",
+      "loc": "445 Leavenworth St",
+      "win": "6am\u20138pm",
+      "nbh": "Tenderloin"
+    },
+    {
+      "n": 7,
+      "cat": "Garbage And Debris \u2014 Human Waste Or Urine",
+      "loc": "166 Eddy St",
+      "win": "7am\u20138pm",
+      "nbh": "Tenderloin"
+    },
+    {
+      "n": 5,
+      "cat": "Garbage And Debris \u2014 Other Loose Garbage Debris Yard Waste",
+      "loc": "1245 Howard St",
+      "win": "8am\u201312pm",
+      "nbh": "South of Market"
+    },
+    {
+      "n": 5,
+      "cat": "Garbage And Debris \u2014 Other Loose Garbage Debris Yard Waste",
+      "loc": "1785 Fillmore St",
+      "win": "8am\u20139pm",
+      "nbh": "Lower Pacific Heights"
+    }
+  ]
+}

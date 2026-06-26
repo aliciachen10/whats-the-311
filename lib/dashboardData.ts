@@ -9,6 +9,64 @@ export type Neighborhood = {
   spot?: boolean;
 };
 
+export type QueueRow = {
+  priority: "P1" | "P2" | "P3";
+  category: string;
+  location: string;
+  neighborhood: string;
+  severity: number;
+  ageHrs: number;
+  dupes: number;
+  route: string;
+  status: "queued" | "dispatched" | "blindspot";
+};
+
+export type Cluster = {
+  n: number;
+  cat: string;
+  loc: string;
+  win: string;
+  nbh: string;
+};
+
+export type Kpis = {
+  queue_count: number;
+  queue_subtitle: string;
+  dupes_merged: number;
+  dupes_subtitle: string;
+  p1_count: number;
+  blindspot_count: number;
+  blindspot_subtitle: string;
+  raw_24h: number;
+  raw_24h_rounded: number;
+  backlog_90d: number;
+  as_of: string;
+};
+
+export type DailyFlow = {
+  date: string;
+  opened: number;
+  closed: number;
+};
+
+export type PublicKpis = {
+  median_resolve_hours: number;
+  median_resolve_delta_pct: number;
+  fastest_resolved_hours: number;
+  fastest_category: string;
+  fastest_neighborhood: string;
+  reports_this_month: number;
+  reports_delta_pct: number;
+  closed_within_target_pct: number;
+  closed_within_target_delta_pts: number;
+  as_of: string;
+};
+
+// Static neighborhood data used by the PUBLIC dashboard (campaign page).
+// The DPW ops page reads its own live numbers from data/neighborhoods.json
+// (produced by scripts/snapshot.py). Both use the same audit-derived
+// litter/prop/spot values — kept in sync manually with snapshot.py's
+// BLINDSPOT_NEIGHBORHOODS list.
 export const neighborhoods: Neighborhood[] = [
   { n: "Tenderloin", reports: 9120, resp: 19, litter: 2.91, prop: 3.8 },
   { n: "Mission", reports: 8470, resp: 23, litter: 2.79, prop: 1.6 },
@@ -24,40 +82,4 @@ export const neighborhoods: Neighborhood[] = [
   { n: "Portola", reports: 1110, resp: 39, litter: 2.41, prop: 0.27, spot: true },
   { n: "Visitacion Valley", reports: 1240, resp: 46, litter: 2.62, prop: 0.22, spot: true },
   { n: "Oceanview/Merced/Ingleside", reports: 980, resp: 47, litter: 2.55, prop: 0.1, spot: true },
-];
-
-export type QueueRow = {
-  priority: "P1" | "P2" | "P3";
-  category: string;
-  location: string;
-  neighborhood: string;
-  severity: number;
-  ageHrs: number;
-  dupes: number;
-  route: string;
-  status: "queued" | "dispatched" | "blindspot";
-};
-
-export const queue: QueueRow[] = [
-  { priority: "P1", category: "Used syringes", location: "Ellis & Jones", neighborhood: "Tenderloin", severity: 98, ageHrs: 1, dupes: 5, route: "DPW Sharps", status: "queued" },
-  { priority: "P1", category: "Human/animal waste", location: "3rd St & Palou", neighborhood: "Bayview Hunters Point", severity: 95, ageHrs: 2, dupes: 2, route: "Steam crew", status: "dispatched" },
-  { priority: "P1", category: "Illegal dumping", location: "16th & Mission", neighborhood: "Mission", severity: 91, ageHrs: 2, dupes: 7, route: "DPW + Recology", status: "queued" },
-  { priority: "P1", category: "Encampment debris", location: "Cesar Chavez underpass", neighborhood: "Bayview Hunters Point", severity: 88, ageHrs: 4, dupes: 3, route: "HSOC + DPW", status: "queued" },
-  { priority: "P2", category: "Illegal dumping", location: "Sunnydale Ave", neighborhood: "Visitacion Valley", severity: 79, ageHrs: 6, dupes: 1, route: "DPW + Recology", status: "blindspot" },
-  { priority: "P2", category: "Human/animal waste", location: "Orizaba & Broad", neighborhood: "Oceanview/Merced/Ingleside", severity: 77, ageHrs: 7, dupes: 0, route: "Steam crew", status: "blindspot" },
-  { priority: "P2", category: "Overflowing bin", location: "Geneva & Mission", neighborhood: "Excelsior", severity: 71, ageHrs: 5, dupes: 2, route: "Recology", status: "queued" },
-  { priority: "P2", category: "Street litter", location: "7th & Market", neighborhood: "South of Market", severity: 68, ageHrs: 3, dupes: 4, route: "DPW sweep", status: "dispatched" },
-  { priority: "P2", category: "Dead animal", location: "Bayshore Blvd", neighborhood: "Portola", severity: 66, ageHrs: 8, dupes: 0, route: "DPW / ACC", status: "blindspot" },
-  { priority: "P2", category: "Graffiti", location: "Valencia & 24th", neighborhood: "Mission", severity: 58, ageHrs: 20, dupes: 3, route: "Paint crew", status: "queued" },
-  { priority: "P3", category: "Street litter", location: "Powell & Geary", neighborhood: "Union Square", severity: 44, ageHrs: 5, dupes: 6, route: "DPW sweep", status: "queued" },
-  { priority: "P3", category: "Overflowing bin", location: "Columbus & Bay", neighborhood: "North Beach", severity: 39, ageHrs: 9, dupes: 2, route: "Recology", status: "queued" },
-  { priority: "P3", category: "Graffiti", location: "Clay & Kearny", neighborhood: "Financial District", severity: 33, ageHrs: 30, dupes: 1, route: "Paint crew", status: "queued" },
-  { priority: "P3", category: "Street litter", location: "Irving & 19th", neighborhood: "Inner Sunset", severity: 28, ageHrs: 14, dupes: 0, route: "DPW sweep", status: "queued" },
-];
-
-export const clusters = [
-  { n: 7, cat: "Illegal dumping", loc: "16th St & Mission", win: "6:40–8:15am", nbh: "Mission" },
-  { n: 5, cat: "Human/animal waste", loc: "Ellis & Jones", win: "overnight", nbh: "Tenderloin" },
-  { n: 4, cat: "Overflowing bin", loc: "3rd St & Palou", win: "7:10–7:55am", nbh: "Bayview" },
-  { n: 3, cat: "Graffiti", loc: "Valencia & 24th", win: "yesterday pm", nbh: "Mission" },
 ];
