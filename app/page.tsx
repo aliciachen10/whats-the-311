@@ -8,14 +8,16 @@ import { Footer } from "@/components/Footer";
 
 export default function Page() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <Nav />
-      <Hero />
-      <HowItWorks />
-      <ReportWhat />
-      <Wins />
-      <Heroes />
+      <main id="main-content">
+        <Hero />
+        <HowItWorks />
+        <ReportWhat />
+        <Wins />
+        <Heroes />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }

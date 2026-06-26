@@ -44,12 +44,12 @@ export function ReportWhat() {
             >
               <div className="text-3xl">{i.emoji}</div>
               <h3 className="mt-3 font-display text-lg">{i.label}</h3>
-              <p className="mt-1 text-sm text-ink/65">{i.desc}</p>
+              <p className="mt-1 text-sm text-ink/75">{i.desc}</p>
             </li>
           ))}
         </ul>
 
-        <p className="mt-8 text-sm text-ink/55">
+        <p className="mt-8 text-sm text-ink/75">
           Don&apos;t see it here? Public Works also handles street sweeping schedules,
           flooded gutters, and damaged street signs. When in doubt, dial 311.
         </p>

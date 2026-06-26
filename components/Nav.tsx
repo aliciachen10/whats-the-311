@@ -1,10 +1,16 @@
 export function Nav() {
   return (
-    <nav className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-      <a href="/" className="flex items-center gap-2">
-        <span className="grid h-9 w-9 place-items-center rounded-full bg-sf-orange text-white font-display text-sm">
-          311
-        </span>
+    <nav
+      aria-label="Primary"
+      className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-5"
+    >
+      <a href="/" className="flex items-center gap-2" aria-label="What's the 311? home">
+        <img
+          src="/media-kit/whats-the-311-icon.png"
+          alt=""
+          aria-hidden="true"
+          className="h-10 w-10 rounded-lg"
+        />
         <span className="font-display text-lg tracking-tight">What&apos;s the 311?</span>
       </a>
       <div className="hidden gap-6 md:flex text-sm">

@@ -13,6 +13,36 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Visible focus indicator for keyboard navigation */
+:focus-visible {
+  outline: 3px solid #E0552B;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Screen-reader only utility (Tailwind also provides sr-only, but ensure consistency) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .tape {
   background: repeating-linear-gradient(
     45deg,

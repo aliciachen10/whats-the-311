@@ -23,10 +23,12 @@ export default function Page() {
   const kpis = readJson<PublicKpis>("public_kpis.json");
 
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <Nav />
-      <PublicDashboard neighborhoods={neighborhoods} kpis={kpis} />
+      <main id="main-content">
+        <PublicDashboard neighborhoods={neighborhoods} kpis={kpis} />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }

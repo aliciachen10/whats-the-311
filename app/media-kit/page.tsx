@@ -10,10 +10,12 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <Nav />
-      <MediaKit />
+      <main id="main-content">
+        <MediaKit />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }

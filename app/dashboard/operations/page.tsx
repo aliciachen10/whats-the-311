@@ -11,9 +11,6 @@ export const metadata = {
   description: "Today's queue, prioritized and de-duplicated. Internal DPW operations view.",
 };
 
-// Snapshot files are produced by scripts/snapshot.py against the local DB and
-// committed into whats-the-311/data/. Read at request time so a fresh deploy
-// always picks up the latest commit; no DB connection at runtime.
 function readJson<T>(name: string): T {
   const p = path.join(process.cwd(), "data", name);
   return JSON.parse(fs.readFileSync(p, "utf8")) as T;
@@ -29,16 +26,18 @@ export default function Page() {
   const dailyFlow = readJson<Snapshot<DailyFlow>>("daily_flow.json").rows;
 
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <Nav />
-      <OperationsDashboard
-        queue={queue}
-        neighborhoods={neighborhoods}
-        clusters={clusters}
-        kpis={kpis}
-        dailyFlow={dailyFlow}
-      />
+      <main id="main-content">
+        <OperationsDashboard
+          queue={queue}
+          neighborhoods={neighborhoods}
+          clusters={clusters}
+          kpis={kpis}
+          dailyFlow={dailyFlow}
+        />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }

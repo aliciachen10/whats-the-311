@@ -101,7 +101,7 @@ export function Wins() {
                 <span className="font-semibold text-sf-orange">{w.days}</span>
               </div>
               <h3 className="mt-3 font-display text-lg leading-tight">{w.where}</h3>
-              <p className="text-sm text-ink/60">Reported by {w.reporter}</p>
+              <p className="text-sm text-ink/75">Reported by {w.reporter}</p>
             </article>
           ))}
         </div>

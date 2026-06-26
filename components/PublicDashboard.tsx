@@ -15,7 +15,7 @@ function fmtResolveTime(hours: number): string {
 // `positiveIsGood=false` — lower numbers  = green ▼ / higher = red ▲ (avg resolve time)
 function deltaLabel(value: number, suffix: string, positiveIsGood: boolean) {
   if (value === 0) {
-    return { text: `flat ${suffix}`.trim(), cls: "text-ink/60" };
+    return { text: `flat ${suffix}`.trim(), cls: "text-ink/75" };
   }
   const up = value > 0;
   const good = positiveIsGood ? up : !up;
@@ -62,7 +62,7 @@ export function PublicDashboard({ neighborhoods, kpis }: Props) {
           big={fmtResolveTime(kpis.fastest_resolved_hours)}
           lbl="Fastest resolved this week"
           delta={`${kpis.fastest_category} · ${kpis.fastest_neighborhood}`}
-          deltaClass="text-ink/60"
+          deltaClass="text-ink/75"
         />
         <Kpi
           accent="#3E78B2"
@@ -85,13 +85,13 @@ export function PublicDashboard({ neighborhoods, kpis }: Props) {
       <div className="grid gap-4 md:grid-cols-[1.4fr_1fr] mb-6">
         <Card>
           <h3 className="font-display text-lg">Neighborhood leaderboard</h3>
-          <p className="text-ink/60 text-sm mt-1 mb-4">
+          <p className="text-ink/75 text-sm mt-1 mb-4">
             Reports filed this month. Spotlight neighborhoods are historically under-heard, and crews go where the data goes.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="text-ink/50 text-xs uppercase tracking-wider">
+                <tr className="text-ink/70 text-xs uppercase tracking-wider">
                   <th className="text-right py-2 pr-3">#</th>
                   <th className="text-left py-2 pr-3">Neighborhood</th>
                   <th className="text-right py-2 pr-3">Reports</th>
@@ -102,7 +102,7 @@ export function PublicDashboard({ neighborhoods, kpis }: Props) {
               <tbody>
                 {leaderboard.map((d, i) => (
                   <tr key={d.n} className={`border-t border-ink/10 ${d.spot ? "bg-sf-gold/10" : ""}`}>
-                    <td className="text-right py-2 pr-3 font-bold text-ink/50 tabular-nums">{String(i + 1).padStart(2, "0")}</td>
+                    <td className="text-right py-2 pr-3 font-bold text-ink/70 tabular-nums">{String(i + 1).padStart(2, "0")}</td>
                     <td className="py-2 pr-3">{d.n}</td>
                     <td className="text-right py-2 pr-3 tabular-nums">{d.reports.toLocaleString()}</td>
                     <td className="text-right py-2 pr-3 tabular-nums">{d.resp}h</td>
@@ -122,7 +122,7 @@ export function PublicDashboard({ neighborhoods, kpis }: Props) {
 
         <Card>
           <h3 className="font-display text-lg">This month&apos;s Community Hero</h3>
-          <p className="text-ink/60 text-sm mt-1 mb-4">
+          <p className="text-ink/75 text-sm mt-1 mb-4">
             Top reporter from a spotlight neighborhood. Invited to City Hall to meet the Mayor and DPW leadership.
           </p>
           <div className="flex items-center gap-4">
@@ -131,7 +131,7 @@ export function PublicDashboard({ neighborhoods, kpis }: Props) {
             </div>
             <div>
               <div className="font-extrabold text-lg">@dee_sf</div>
-              <div className="text-ink/60 text-sm">Bayview · &ldquo;Bayview Block Captain&rdquo;</div>
+              <div className="text-ink/75 text-sm">Bayview · &ldquo;Bayview Block Captain&rdquo;</div>
               <div className="mt-2">
                 <Chip>412 reports this quarter</Chip>
                 <Chip>96% actionable</Chip>
@@ -148,7 +148,7 @@ export function PublicDashboard({ neighborhoods, kpis }: Props) {
         </Card>
       </div>
 
-      <p className="text-xs text-ink/50 mt-8">
+      <p className="text-xs text-ink/70 mt-8">
         Headline KPIs and leaderboard derived from SF open data (311 cases <code>vw6y-z8j6</code>, Street &amp; Sidewalk Standards <code>qya8-uhsz</code>), snapshot as of {new Date(kpis.as_of).toLocaleDateString()}. Community Hero card is illustrative; the 311 dataset does not include reporter identity. Not an official communication of the City unless co-branded.
       </p>
     </section>
@@ -171,7 +171,7 @@ function Kpi({ accent, bg, big, lbl, delta, deltaClass }: { accent: string; bg: 
         ●
       </div>
       <div className="text-3xl font-extrabold leading-none tabular-nums">{big}</div>
-      <div className="text-xs text-ink/60 mt-2">{lbl}</div>
+      <div className="text-xs text-ink/75 mt-2">{lbl}</div>
       <div className={`text-xs font-bold mt-2 ${deltaClass}`}>{delta}</div>
     </Card>
   );

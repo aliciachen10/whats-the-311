@@ -94,7 +94,7 @@ export function OperationsDashboard({ queue, neighborhoods, clusters, kpis, dail
       <div className="grid gap-4 md:grid-cols-[1fr_1.5fr] mb-6">
         <Card>
           <h3 className="font-display text-lg">Blind-spot neighborhoods</h3>
-          <p className="text-ink/60 text-sm mt-1 mb-4">
+          <p className="text-ink/75 text-sm mt-1 mb-4">
             Where objective dirtiness (Controller audit) outruns 311 volume. Reporting propensity vs citywide average of 1.0.
           </p>
           <div>
@@ -125,18 +125,18 @@ export function OperationsDashboard({ queue, neighborhoods, clusters, kpis, dail
               );
             })}
           </div>
-          <div className="text-xs text-ink/60 flex flex-wrap gap-4 mt-3">
+          <div className="text-xs text-ink/75 flex flex-wrap gap-4 mt-3">
             <Legend color="#3E78B2">over-reports (loud)</Legend>
             <Legend color="#C0392B">under-reports (blind spot)</Legend>
           </div>
-          <p className="text-xs text-ink/50 mt-3">
+          <p className="text-xs text-ink/70 mt-3">
             Correction factor applied to live 311 to estimate true need where reports are sparse. Runs on open data; no new sensors.
           </p>
         </Card>
 
         <Card>
           <h3 className="font-display text-lg">Automatic de-duplication</h3>
-          <p className="text-ink/60 text-sm mt-1 mb-4">
+          <p className="text-ink/75 text-sm mt-1 mb-4">
             Clustered reports merged into one job before dispatch, so two crews aren&apos;t sent to one pile.
           </p>
           <div>
@@ -149,13 +149,13 @@ export function OperationsDashboard({ queue, neighborhoods, clusters, kpis, dail
                   <span className="text-ink/40 font-bold">→</span>
                   <span>1 job</span>
                 </div>
-                <div className="text-ink/60 text-xs mt-1">
+                <div className="text-ink/75 text-xs mt-1">
                   <b className="text-ink/80">{c.cat}</b> · {c.loc} · {c.nbh} · window {c.win}
                 </div>
               </div>
             ))}
           </div>
-          <p className="text-xs text-ink/50 mt-3">
+          <p className="text-xs text-ink/70 mt-3">
             Today: <b>{fmtInt(kpis.dupes_merged)}</b> duplicates merged · est. <b>{Math.max(Math.floor(kpis.dupes_merged / 4), 1)}</b> redundant dispatches avoided.
           </p>
         </Card>
@@ -163,7 +163,7 @@ export function OperationsDashboard({ queue, neighborhoods, clusters, kpis, dail
 
       <Card>
         <h3 className="font-display text-lg">Daily prioritization queue</h3>
-        <p className="text-ink/60 text-sm mt-1 mb-4">
+        <p className="text-ink/75 text-sm mt-1 mb-4">
           Ranked by severity, jurisdiction-routed, blind-spot adjusted. Sort any column; filter by category.
         </p>
         <div className="flex flex-wrap gap-2 mb-3">
@@ -200,7 +200,7 @@ export function OperationsDashboard({ queue, neighborhoods, clusters, kpis, dail
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-ink/50 text-xs uppercase tracking-wider">
+              <tr className="text-ink/70 text-xs uppercase tracking-wider">
                 <Th onClick={() => sortBy("priority")}>Priority</Th>
                 <Th onClick={() => sortBy("category")}>Category</Th>
                 <Th onClick={() => sortBy("location")}>Location</Th>
@@ -233,7 +233,7 @@ export function OperationsDashboard({ queue, neighborhoods, clusters, kpis, dail
             </tbody>
           </table>
         </div>
-        <div className="flex items-center justify-between mt-4 text-xs text-ink/60">
+        <div className="flex items-center justify-between mt-4 text-xs text-ink/75">
           <div>
             {rows.length === 0
               ? "No matches"
@@ -261,7 +261,7 @@ export function OperationsDashboard({ queue, neighborhoods, clusters, kpis, dail
             </button>
           </div>
         </div>
-        <p className="text-xs text-ink/50 mt-3">
+        <p className="text-xs text-ink/70 mt-3">
           Severity blends audit-calibrated need with report signal. &ldquo;Merged&rdquo; = duplicate reports folded into this job.
         </p>
       </Card>
@@ -269,14 +269,14 @@ export function OperationsDashboard({ queue, neighborhoods, clusters, kpis, dail
       <div className="mt-6">
         <Card>
           <h3 className="font-display text-lg">Inflow vs. closures by day, last 90 days</h3>
-          <p className="text-ink/60 text-sm mt-1 mb-4">
+          <p className="text-ink/75 text-sm mt-1 mb-4">
             Are crews closing as fast as the city reports? When opened (red) outruns closed (green), the backlog grows.
           </p>
           <InflowOutflowChart rows={dailyFlow} />
         </Card>
       </div>
 
-      <p className="text-xs text-ink/50 mt-8">
+      <p className="text-xs text-ink/70 mt-8">
         Prototype data illustrative. Built on SF open data (311 cases <code>vw6y-z8j6</code>, Street &amp; Sidewalk Standards <code>qya8-uhsz</code>).
         Not an official communication of the City unless co-branded.
       </p>
@@ -298,8 +298,8 @@ function Kpi({ accent, bg, big, lbl, delta }: { accent: string; bg: string; big:
         ●
       </div>
       <div className="text-3xl font-extrabold leading-none tabular-nums">{big}</div>
-      <div className="text-xs text-ink/60 mt-2">{lbl}</div>
-      <div className="text-xs font-bold mt-2 text-ink/60">{delta}</div>
+      <div className="text-xs text-ink/75 mt-2">{lbl}</div>
+      <div className="text-xs font-bold mt-2 text-ink/75">{delta}</div>
     </Card>
   );
 }
