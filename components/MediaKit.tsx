@@ -32,7 +32,7 @@ const stickers = [
   "+1 Block",
   "Spot it. Report it.",
   "Report trash · help your neighborhood",
-  "311 — Report it.",
+  "311, Report it.",
 ];
 
 const colors = [
@@ -54,7 +54,7 @@ export function MediaKit() {
           Spread the <span className="scribble-underline text-sf-orange">311</span> in your block.
         </h1>
         <p className="text-ink/70 mt-4 max-w-2xl text-lg">
-          Posters, stickers, social media, and print-ready materials — for volunteer groups,
+          Posters, stickers, social media, and print-ready materials, for volunteer groups,
           neighborhood associations, block captains, small businesses, and anyone who wants a
           cleaner SF. Free to download, print, and remix.
         </p>
@@ -83,7 +83,7 @@ export function MediaKit() {
         ))}
       </div>
 
-      <SectionHead eyebrow="Social media" title="Square — Instagram, Facebook, LinkedIn">
+      <SectionHead eyebrow="Social media" title="Square, Instagram, Facebook, LinkedIn">
         Drop straight into a post. 1080×1080.
       </SectionHead>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-12">
@@ -92,7 +92,7 @@ export function MediaKit() {
         ))}
       </div>
 
-      <SectionHead eyebrow="Stories &amp; Reels" title="Vertical — Instagram, TikTok, Snap">
+      <SectionHead eyebrow="Stories &amp; Reels" title="Vertical, Instagram, TikTok, Snap">
         For stories, reels, and short-form video covers. 1080×1920.
       </SectionHead>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-12">
@@ -102,7 +102,7 @@ export function MediaKit() {
       </div>
 
       <SectionHead eyebrow="Stickers" title="Bumper · laptop · water bottle · window">
-        Vinyl sticker pack — order a printed batch or download the cut files.
+        Vinyl sticker pack, order a printed batch or download the cut files.
       </SectionHead>
       <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-6 mb-12">
         {stickers.map((s, i) => (
@@ -127,7 +127,7 @@ export function MediaKit() {
       </div>
 
       <SectionHead eyebrow="Brand kit" title="Use the campaign look, your way">
-        Colors, fonts, and QR codes — for remixers, designers, and your own materials.
+        Colors, fonts, and QR codes, for remixers, designers, and your own materials.
       </SectionHead>
       <div className="grid gap-4 md:grid-cols-3 mb-12">
         <Card>
@@ -155,7 +155,7 @@ export function MediaKit() {
             </div>
             <div>
               <div className="text-xs uppercase tracking-widest text-ink/50">Body</div>
-              <div className="text-base mt-1">Inter — AaBbCcDdEe 1234567890</div>
+              <div className="text-base mt-1">Inter, AaBbCcDdEe 1234567890</div>
             </div>
           </div>
         </Card>
@@ -200,7 +200,7 @@ export function MediaKit() {
         </h2>
         <p className="text-ink/70 mt-3 max-w-xl mx-auto">
           High-res posters, social media graphics, sticker SVGs, print PDFs, brand colors,
-          fonts, and QR codes — bundled in one .zip.
+          fonts, and QR codes, bundled in one .zip.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a href="#" className="rounded-full bg-sf-orange px-6 py-3 font-semibold text-white shadow-lg shadow-sf-orange/30 hover:bg-ink">

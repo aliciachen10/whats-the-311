@@ -29,7 +29,7 @@ export function HowItWorks() {
               The city <span className="text-sf-orange">relies on you</span> to call it in.
             </h2>
             <p className="mt-6 text-fog/70">
-              SF Public Works has crews, trucks, and steam cleaners ready — but they
+              SF Public Works has crews, trucks, and steam cleaners ready, but they
               can&apos;t be on every block at once. Citizen reports are how DPW knows
               where to go next. Every report counts as a vote for your neighborhood.
             </p>

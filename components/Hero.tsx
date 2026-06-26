@@ -24,7 +24,7 @@ export function Hero() {
             San Francisco doesn&apos;t fix what it doesn&apos;t hear about.
             The fastest way to a cleaner block is{" "}
             <strong>you, your phone, and 30 seconds</strong>.
-            Snap it. Send it. Solved — often within hours.
+            Snap it. Send it. Solved, often within hours.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">

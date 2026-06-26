@@ -87,7 +87,7 @@ export function OperationsDashboard({ queue, neighborhoods, clusters, kpis, dail
       <div className="grid gap-4 md:grid-cols-4 mb-6">
         <Kpi accent="#3E78B2" bg="#E7F1FB" big={fmtInt(kpis.queue_count)} lbl="Tickets in queue today" delta={kpis.queue_subtitle} />
         <Kpi accent="#E0552B" bg="#FDEEE2" big={fmtInt(kpis.dupes_merged)} lbl="Duplicates auto-merged" delta={kpis.dupes_subtitle} />
-        <Kpi accent="#C0392B" bg="#FBE9E7" big={fmtInt(kpis.p1_count)} lbl="P1 — dispatch now" delta="syringes · human/animal waste" />
+        <Kpi accent="#C0392B" bg="#FBE9E7" big={fmtInt(kpis.p1_count)} lbl="P1, dispatch now" delta="syringes · human/animal waste" />
         <Kpi accent="#E0A92E" bg="#FFF6EC" big={fmtInt(kpis.blindspot_count)} lbl="Blind-spot alerts" delta={kpis.blindspot_subtitle} />
       </div>
 

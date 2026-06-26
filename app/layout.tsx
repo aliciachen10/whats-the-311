@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "What's the 311? — Help clean up San Francisco",
+  title: "What's the 311? Help clean up San Francisco",
   description:
-    "SF cleans up what citizens report. Snap, send, solved — often in hours. Report litter, graffiti, dumping, and more with the 311 app.",
+    "SF cleans up what citizens report. Snap, send, solved, often in hours. Report litter, graffiti, dumping, and more with the 311 app.",
   openGraph: {
     title: "What's the 311?",
     description:
-      "Snap it. Send it. Solved — often in hours. A public-service campaign for a cleaner SF.",
+      "Snap it. Send it. Solved, often in hours. A public-service campaign for a cleaner SF.",
     type: "website",
   },
 };

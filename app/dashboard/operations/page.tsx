@@ -7,7 +7,7 @@ import { OperationsDashboard } from "@/components/OperationsDashboard";
 import type { Cluster, DailyFlow, Kpis, Neighborhood, QueueRow } from "@/lib/dashboardData";
 
 export const metadata = {
-  title: "DPW operations dashboard — What's the 311?",
+  title: "DPW operations dashboard, What's the 311?",
   description: "Today's queue, prioritized and de-duplicated. Internal DPW operations view.",
 };
 

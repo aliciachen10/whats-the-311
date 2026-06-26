@@ -5,7 +5,7 @@ const issues = [
   { emoji: "🎨", label: "Graffiti", desc: "On public or private property. DPW abates within days." },
   { emoji: "🛋️", label: "Illegal dumping", desc: "Mattresses, couches, electronics, construction debris." },
   { emoji: "🗑️", label: "Overflowing trash can", desc: "Public Big Belly bins that are full or busted." },
-  { emoji: "💉", label: "Used syringes", desc: "Sharps & needle pickup — handled with priority." },
+  { emoji: "💉", label: "Used syringes", desc: "Sharps & needle pickup, handled with priority." },
   { emoji: "🐀", label: "Dead animals", desc: "On public right-of-way. DPW or Animal Care responds." },
   { emoji: "🌳", label: "Tree & sidewalk hazards", desc: "Fallen branches, broken sidewalk panels, uplifted curbs." },
   { emoji: "🚗", label: "Abandoned vehicles", desc: "72+ hours in one spot, stripped, or expired tags." },
@@ -26,7 +26,7 @@ export function ReportWhat() {
             </h2>
             <p className="mt-4 text-ink/70">
               These are the cleanliness categories SF Public Works (DPW) actually
-              dispatches against. Don&apos;t self-edit — if you&apos;re unsure, report it and
+              dispatches against. Don&apos;t self-edit, if you&apos;re unsure, report it and
               the city routes it.
             </p>
           </div>
@@ -51,7 +51,7 @@ export function ReportWhat() {
 
         <p className="mt-8 text-sm text-ink/55">
           Don&apos;t see it here? Public Works also handles street sweeping schedules,
-          flooded gutters, and damaged street signs. When in doubt — 311.
+          flooded gutters, and damaged street signs. When in doubt, dial 311.
         </p>
       </div>
     </section>

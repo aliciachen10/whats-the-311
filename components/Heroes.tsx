@@ -23,7 +23,7 @@ export function Heroes() {
             </h2>
             <p className="mt-6 text-fog/70">
               Downtown gets reported on constantly. Bayview, Visitacion Valley, the
-              OMI, Portola, and Excelsior don&apos;t — and crews go where data goes.
+              OMI, Portola, and Excelsior don&apos;t, and crews go where data goes.
               Each quarter, the top reporter from each of these neighborhoods is invited
               to City Hall to meet the Mayor and SF Public Works leadership.
             </p>

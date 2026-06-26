@@ -86,7 +86,7 @@ export function PublicDashboard({ neighborhoods, kpis }: Props) {
         <Card>
           <h3 className="font-display text-lg">Neighborhood leaderboard</h3>
           <p className="text-ink/60 text-sm mt-1 mb-4">
-            Reports filed this month. Spotlight neighborhoods are historically under-heard — crews go where the data goes.
+            Reports filed this month. Spotlight neighborhoods are historically under-heard, and crews go where the data goes.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -149,7 +149,7 @@ export function PublicDashboard({ neighborhoods, kpis }: Props) {
       </div>
 
       <p className="text-xs text-ink/50 mt-8">
-        Headline KPIs and leaderboard derived from SF open data (311 cases <code>vw6y-z8j6</code>, Street &amp; Sidewalk Standards <code>qya8-uhsz</code>) — snapshot as of {new Date(kpis.as_of).toLocaleDateString()}. Community Hero card is illustrative; the 311 dataset does not include reporter identity. Not an official communication of the City unless co-branded.
+        Headline KPIs and leaderboard derived from SF open data (311 cases <code>vw6y-z8j6</code>, Street &amp; Sidewalk Standards <code>qya8-uhsz</code>), snapshot as of {new Date(kpis.as_of).toLocaleDateString()}. Community Hero card is illustrative; the 311 dataset does not include reporter identity. Not an official communication of the City unless co-branded.
       </p>
     </section>
   );

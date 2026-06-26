@@ -7,7 +7,7 @@ import { PublicDashboard } from "@/components/PublicDashboard";
 import type { Neighborhood, PublicKpis } from "@/lib/dashboardData";
 
 export const metadata = {
-  title: "Public dashboard — What's the 311?",
+  title: "Public dashboard, What's the 311?",
   description: "How San Francisco is cleaning up, block by block. Public transparency view.",
 };
 
