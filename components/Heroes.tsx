@@ -34,7 +34,7 @@ export function Heroes() {
                 <li>• Quarterly lunch at City Hall with Mayor + DPW Director</li>
                 <li>• Tell the city what your block actually needs</li>
                 <li>• Limited-edition &quot;Bayview Block Captain&quot; jacket</li>
-                <li>• Feature on the SolveSF Twitter + this site</li>
+                <li>• Feature on @sfpublicworks + this site</li>
               </ul>
               <p className="mt-4 text-xs uppercase tracking-widest text-sf-gold">
                 Spotlight neighborhoods this quarter
@@ -90,8 +90,8 @@ export function Heroes() {
               </table>
             </div>
             <p className="mt-4 text-sm text-fog/60">
-              Leaderboard refreshes weekly. To qualify, link your SolveSF / SF311
-              account at sign-up. One spot per neighborhood per quarter.
+              Leaderboard refreshes weekly. To qualify, link your SF311 account
+              at sign-up. One spot per neighborhood per quarter.
             </p>
             <div className="mt-6 flex gap-3">
               <a href="#download" className="rounded-full bg-sf-orange px-5 py-3 font-semibold text-white">

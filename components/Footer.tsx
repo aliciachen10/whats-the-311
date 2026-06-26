@@ -11,13 +11,12 @@ export function Footer() {
               <span className="font-display text-lg">What&apos;s the 311?</span>
             </div>
             <p className="mt-3 text-sm text-ink/60">
-              A public-service campaign in partnership with SF Public Works and SolveSF.
+              A public-service campaign in partnership with SF Public Works.
             </p>
           </div>
           <div>
             <h4 className="font-display text-sm uppercase tracking-widest">Report</h4>
             <ul className="mt-3 space-y-2 text-sm text-ink/70">
-              <li><a href="https://solvesf.com">SolveSF app</a></li>
               <li><a href="https://sf311.org">SF311.org</a></li>
               <li><a href="tel:311">Dial 311</a></li>
             </ul>
@@ -33,7 +32,6 @@ export function Footer() {
           <div>
             <h4 className="font-display text-sm uppercase tracking-widest">Follow</h4>
             <ul className="mt-3 space-y-2 text-sm text-ink/70">
-              <li><a href="https://twitter.com/solvesf">@solvesf on X</a></li>
               <li><a href="https://twitter.com/sfpublicworks">@sfpublicworks</a></li>
               <li>#WhatsThe311</li>
             </ul>

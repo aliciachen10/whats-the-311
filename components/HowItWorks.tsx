@@ -7,7 +7,7 @@ const steps = [
   {
     n: "02",
     title: "You report in 30 seconds",
-    body: "Open SolveSF (or call 311). Snap a photo, drop a pin, hit send. Categories auto-route to the right city crew.",
+    body: "Open the 311 app (or call 311). Snap a photo, drop a pin, hit send. Categories auto-route to the right city crew.",
   },
   {
     n: "03",

@@ -1,5 +1,5 @@
-// NOTE: Swap these placeholder gradients for real before/after photos from
-// the @solvesf Twitter/X feed. Drop images into /public/wins and reference them.
+// NOTE: Swap these placeholder gradients for real before/after photos.
+// Drop images into /public/wins and reference them.
 const wins = [
   {
     where: "Mission St & 16th",
@@ -72,10 +72,10 @@ export function Wins() {
             </p>
           </div>
           <a
-            href="https://twitter.com/solvesf"
+            href="https://twitter.com/sfpublicworks"
             className="rounded-full border-2 border-ink px-5 py-2 font-semibold hover:bg-ink hover:text-fog"
           >
-            More on @solvesf →
+            More on @sfpublicworks →
           </a>
         </div>
 

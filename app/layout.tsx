@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "What's the 311? — Help clean up San Francisco",
   description:
-    "SF cleans up what citizens report. Snap, send, solved — often in hours. Report litter, graffiti, dumping, and more with SolveSF or 311.",
+    "SF cleans up what citizens report. Snap, send, solved — often in hours. Report litter, graffiti, dumping, and more with the 311 app.",
   openGraph: {
     title: "What's the 311?",
     description:

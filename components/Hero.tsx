@@ -1,7 +1,7 @@
 "use client";
 import { QRCodeSVG } from "qrcode.react";
 
-const SOLVESF_URL = "https://solvesf.com";
+const APP_URL = "https://sf311.org";
 
 export function Hero() {
   return (
@@ -32,7 +32,7 @@ export function Hero() {
               href="#download"
               className="rounded-full bg-sf-orange px-6 py-3 font-semibold text-white shadow-lg shadow-sf-orange/30 hover:bg-ink"
             >
-              Download SolveSF →
+              Download the 311 app →
             </a>
             <a
               href="tel:311"
@@ -64,10 +64,10 @@ export function Hero() {
             <p className="font-display text-sm uppercase tracking-widest text-ink/60">
               Point your camera
             </p>
-            <h3 className="font-display text-2xl">Get SolveSF</h3>
+            <h3 className="font-display text-2xl">Get the 311 app</h3>
             <div className="mt-4 grid place-items-center rounded-2xl bg-fog p-6">
               <QRCodeSVG
-                value={SOLVESF_URL}
+                value={APP_URL}
                 size={208}
                 bgColor="#F4F1EA"
                 fgColor="#0B1220"
@@ -85,10 +85,6 @@ export function Hero() {
               <span className="rounded-full bg-fog px-3 py-1">Web</span>
             </div>
           </div>
-          <p className="mt-4 text-center text-sm text-ink/60">
-            Prefer the city app?{" "}
-            <a className="underline" href="https://sf311.org">SF311 also works.</a>
-          </p>
         </div>
       </div>
     </section>
