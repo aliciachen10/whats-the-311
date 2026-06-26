@@ -14,21 +14,12 @@ export const metadata: Metadata = {
     description:
       "Snap it. Send it. Solved, often in hours. A public-service campaign for a cleaner SF.",
     type: "website",
-    images: [
-      {
-        url: "/media-kit/whats-the-311-1080x1080.png",
-        width: 1080,
-        height: 1080,
-        alt: "What's the 311? campaign poster",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "What's the 311?",
     description:
       "Snap it. Send it. Solved, often in hours. A public-service campaign for a cleaner SF.",
-    images: ["/media-kit/whats-the-311-1080x1080.png"],
   },
 };
 
