@@ -1,7 +1,37 @@
-import { neighborhoods } from "@/lib/dashboardData";
+import type { Neighborhood, PublicKpis } from "@/lib/dashboardData";
 
-export function PublicDashboard() {
+type Props = {
+  neighborhoods: Neighborhood[];
+  kpis: PublicKpis;
+};
+
+function fmtResolveTime(hours: number): string {
+  if (hours < 1) return `${Math.round(hours * 60)} min`;
+  return `${Math.round(hours)} hrs`;
+}
+
+// Direction-aware delta labels.
+// `positiveIsGood=true`  — higher numbers = green ▲ / lower = red ▼ (participation, % within SLA)
+// `positiveIsGood=false` — lower numbers  = green ▼ / higher = red ▲ (avg resolve time)
+function deltaLabel(value: number, suffix: string, positiveIsGood: boolean) {
+  if (value === 0) {
+    return { text: `flat ${suffix}`.trim(), cls: "text-ink/60" };
+  }
+  const up = value > 0;
+  const good = positiveIsGood ? up : !up;
+  const arrow = up ? "▲" : "▼";
+  return {
+    text: `${arrow} ${Math.abs(value)}${suffix}`,
+    cls: good ? "text-emerald-700" : "text-rose-700",
+  };
+}
+
+export function PublicDashboard({ neighborhoods, kpis }: Props) {
   const leaderboard = [...neighborhoods].sort((a, b) => b.reports - a.reports);
+
+  const resolveDelta = deltaLabel(kpis.median_resolve_delta_pct, "% vs last month", false);
+  const reportsDelta = deltaLabel(kpis.reports_delta_pct, "% participation", true);
+  const slaDelta = deltaLabel(kpis.closed_within_target_delta_pts, " pts", true);
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-12">
@@ -18,10 +48,38 @@ export function PublicDashboard() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-4 mb-6">
-        <Kpi accent="#E0552B" bg="#FDEEE2" big="41 hrs" lbl="Avg. time to resolve" delta="▼ 12% vs last month" deltaClass="text-emerald-700" />
-        <Kpi accent="#2F9E44" bg="#E6F4EA" big="2 hrs" lbl="Fastest resolved this week" delta="Steam cleaning · Tenderloin" deltaClass="text-ink/60" />
-        <Kpi accent="#3E78B2" bg="#E7F1FB" big="84,210" lbl="Reports this month" delta="▲ 9% participation" deltaClass="text-emerald-700" />
-        <Kpi accent="#5a4ea3" bg="#EDEBF7" big="92%" lbl="Closed within target" delta="▲ 4 pts" deltaClass="text-emerald-700" />
+        <Kpi
+          accent="#E0552B"
+          bg="#FDEEE2"
+          big={fmtResolveTime(kpis.median_resolve_hours)}
+          lbl="Median time to resolve"
+          delta={resolveDelta.text}
+          deltaClass={resolveDelta.cls}
+        />
+        <Kpi
+          accent="#2F9E44"
+          bg="#E6F4EA"
+          big={fmtResolveTime(kpis.fastest_resolved_hours)}
+          lbl="Fastest resolved this week"
+          delta={`${kpis.fastest_category} · ${kpis.fastest_neighborhood}`}
+          deltaClass="text-ink/60"
+        />
+        <Kpi
+          accent="#3E78B2"
+          bg="#E7F1FB"
+          big={kpis.reports_this_month.toLocaleString()}
+          lbl="Reports this month"
+          delta={reportsDelta.text}
+          deltaClass={reportsDelta.cls}
+        />
+        <Kpi
+          accent="#5a4ea3"
+          bg="#EDEBF7"
+          big={`${kpis.closed_within_target_pct}%`}
+          lbl="Closed within target"
+          delta={slaDelta.text}
+          deltaClass={slaDelta.cls}
+        />
       </div>
 
       <div className="grid gap-4 md:grid-cols-[1.4fr_1fr] mb-6">
@@ -91,8 +149,7 @@ export function PublicDashboard() {
       </div>
 
       <p className="text-xs text-ink/50 mt-8">
-        Prototype data illustrative. Built on SF open data (311 cases <code>vw6y-z8j6</code>, Street &amp; Sidewalk Standards <code>qya8-uhsz</code>).
-        Not an official communication of the City unless co-branded.
+        Headline KPIs and leaderboard derived from SF open data (311 cases <code>vw6y-z8j6</code>, Street &amp; Sidewalk Standards <code>qya8-uhsz</code>) — snapshot as of {new Date(kpis.as_of).toLocaleDateString()}. Community Hero card is illustrative; the 311 dataset does not include reporter identity. Not an official communication of the City unless co-branded.
       </p>
     </section>
   );
@@ -127,4 +184,3 @@ function Chip({ children }: { children: React.ReactNode }) {
     </span>
   );
 }
-
