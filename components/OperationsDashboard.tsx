@@ -71,7 +71,7 @@ export function OperationsDashboard({ queue, neighborhoods, clusters, kpis, dail
   const pos = (p: number) => ((Math.log(p) - minP) / (maxP - minP)) * 100;
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-12">
+    <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
       <div className="mb-8">
         <div className="text-xs font-extrabold tracking-widest uppercase" style={{ color: "#3E78B2" }}>
           DPW operations · internal · refreshes every morning

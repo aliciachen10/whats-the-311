@@ -64,13 +64,13 @@ function BeforeAfter({ before, after, alt }: { before: string; after: string; al
 export function Wins() {
   return (
     <section id="wins" className="bg-fog">
-      <div className="mx-auto max-w-7xl px-6 py-20">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-sf-moss">
               Real reports, real results
             </p>
-            <h2 className="mt-3 font-display text-5xl leading-none">
+            <h2 className="mt-3 font-display text-4xl sm:text-5xl leading-none">
               Clean SF <span className="text-sf-orange">Wins</span>.
             </h2>
             <p className="mt-4 max-w-xl text-ink/70">

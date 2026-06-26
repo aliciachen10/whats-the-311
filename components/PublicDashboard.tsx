@@ -34,7 +34,7 @@ export function PublicDashboard({ neighborhoods, kpis }: Props) {
   const slaDelta = deltaLabel(kpis.closed_within_target_delta_pts, " pts", true);
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-12">
+    <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
       <div className="mb-8">
         <div className="text-xs font-extrabold tracking-widest uppercase text-sf-bay">
           Public view · updates daily

@@ -79,7 +79,7 @@ const colors = [
 
 export function MediaKit() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-12" aria-labelledby="media-kit-heading">
+    <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12" aria-labelledby="media-kit-heading">
       <div className="mb-10">
         <p className="text-xs font-extrabold tracking-widest uppercase text-sf-orange">
           Campaign Asset Pack v1.0 · free for community use

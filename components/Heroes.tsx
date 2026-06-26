@@ -11,13 +11,13 @@ const underreported = ["Bayview", "Visitacion Valley", "OMI", "Portola", "Excels
 export function Heroes() {
   return (
     <section id="heroes" className="bg-ink text-fog">
-      <div className="mx-auto max-w-7xl px-6 py-20">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <p className="text-sm font-semibold uppercase tracking-widest text-sf-gold">
               Hero Reporters
             </p>
-            <h2 className="mt-3 font-display text-5xl leading-none">
+            <h2 className="mt-3 font-display text-4xl sm:text-5xl leading-none">
               Reporters from{" "}
               <span className="text-sf-orange">underheard neighborhoods</span> meet the Mayor.
             </h2>
@@ -53,8 +53,8 @@ export function Heroes() {
           </div>
 
           <div className="md:col-span-7">
-            <div className="rounded-2xl border border-fog/10 bg-white/5 p-2">
-              <table className="w-full text-left">
+            <div className="rounded-2xl border border-fog/10 bg-white/5 p-2 overflow-x-auto">
+              <table className="w-full min-w-[480px] text-left">
                 <thead>
                   <tr className="text-xs uppercase tracking-widest text-fog/50">
                     <th className="px-4 py-3">#</th>

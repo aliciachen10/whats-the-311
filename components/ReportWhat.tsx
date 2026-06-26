@@ -15,13 +15,13 @@ const issues = [
 export function ReportWhat() {
   return (
     <section id="report" className="relative">
-      <div className="mx-auto max-w-7xl px-6 py-20">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-widest text-sf-bay">
               If you see it, report it
             </p>
-            <h2 className="mt-3 font-display text-5xl leading-none">
+            <h2 className="mt-3 font-display text-4xl sm:text-5xl leading-none">
               What you can <span className="scribble-underline text-sf-orange">call in</span>.
             </h2>
             <p className="mt-4 text-ink/70">

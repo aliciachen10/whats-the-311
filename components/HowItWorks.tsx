@@ -19,13 +19,13 @@ const steps = [
 export function HowItWorks() {
   return (
     <section id="how" className="bg-ink text-fog">
-      <div className="mx-auto max-w-7xl px-6 py-20">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
             <p className="text-sm font-semibold uppercase tracking-widest text-sf-gold">
               The civic loop
             </p>
-            <h2 className="mt-3 font-display text-5xl leading-none">
+            <h2 className="mt-3 font-display text-4xl sm:text-5xl leading-none">
               The city <span className="text-sf-orange">relies on you</span> to call it in.
             </h2>
             <p className="mt-6 text-fog/70">

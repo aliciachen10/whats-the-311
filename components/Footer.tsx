@@ -2,7 +2,7 @@ export function Footer() {
   return (
     <footer className="bg-fog" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">Site footer</h2>
-      <div className="mx-auto max-w-7xl px-6 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
         <div className="grid gap-8 md:grid-cols-4">
           <div>
             <div className="flex items-center gap-2">

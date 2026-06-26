@@ -9,18 +9,18 @@ export function Hero() {
       <div className="absolute -top-32 -right-20 h-[520px] w-[520px] rounded-full bg-sf-orange/20 blur-3xl" aria-hidden="true" />
       <div className="absolute -bottom-40 -left-20 h-[420px] w-[420px] rounded-full bg-sf-sky/40 blur-3xl" aria-hidden="true" />
 
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-10 md:grid-cols-12 md:pt-16">
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-8 sm:px-6 sm:pb-20 md:grid-cols-12 md:pt-16">
         <div className="md:col-span-7">
           <div className="inline-flex items-center gap-2 rounded-full border border-ink/20 bg-white/60 px-3 py-1 text-xs font-semibold uppercase tracking-wider backdrop-blur">
             <span className="h-2 w-2 rounded-full bg-sf-orange" aria-hidden="true" />
             A public-service campaign for a cleaner SF
           </div>
 
-          <h1 id="hero-heading" className="mt-6 font-display text-6xl leading-[0.95] tracking-tight md:text-8xl">
+          <h1 id="hero-heading" className="mt-6 font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] tracking-tight">
             What&apos;s the <span className="scribble-underline text-sf-orange">311</span>?
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg text-ink/80 md:text-xl">
+          <p className="mt-6 max-w-xl text-base sm:text-lg text-ink/80 md:text-xl">
             San Francisco doesn&apos;t fix what it doesn&apos;t hear about.
             The fastest way to a cleaner block is{" "}
             <strong>you, your phone, and 30 seconds</strong>.
